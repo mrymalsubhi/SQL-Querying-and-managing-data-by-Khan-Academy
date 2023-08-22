@@ -1,0 +1,72 @@
+3.4 Challenge: FriendBook
+
+CREATE TABLE persons ( id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT, age INTEGER);  
+INSERT INTO persons (fullname, age) VALUES ("Bobby McBobbyFace", "12");
+INSERT INTO persons (fullname, age) VALUES ("Lucy BoBucie", "25");
+INSERT INTO persons (fullname, age) VALUES ("Banana FoFanna", "14");
+INSERT INTO persons (fullname, age) VALUES ("Shish Kabob", "20");
+INSERT INTO persons (fullname, age) VALUES ("Fluffy Sparkles", "8");
+
+CREATE table hobbies ( id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, name TEXT);
+INSERT INTO hobbies (person_id, name) VALUES (1, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (1, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (2, "dancing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (3, "skating");
+INSERT INTO hobbies (person_id, name) VALUES (3, "rowing");
+INSERT INTO hobbies (person_id, name) VALUES (3, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (4, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
+INSERT INTO hobbies (person_id, name) VALUES (4, "meowing");
+
+CREATE table friends ( id INTEGER PRIMARY KEY AUTOINCREMENT,person1_id INTEGER,person2_id INTEGER);
+INSERT INTO friends (person1_id, person2_id) VALUES (1, 4);
+INSERT INTO friends (person1_id, person2_id) VALUES (2, 3);
+
+/* Step 1
+We've created a database for a friend networking site, with a table storing data on each person, a table on each person's hobbies, and a table of friend connections between the people. In this first step, use a JOIN to display a table showing people's names with their hobbies. */
+
+SELECT fullname , name
+FROM persons
+JOIN hobbies
+on persons.id = hobbies.person_id;  
+
+
+/* Step 2 
+Now, use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table. */
+SELECT p1.fullname , p2.fullname 
+FROM friends JOIN persons as p1
+on p1.id = friends.person1_id
+JOIN persons as p2
+on p2.id = friends.person2_id; 
+
+===========================
+
+3.5 Project: Famous people
+
+/* In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists. */
+
+CREATE TABLE writers (id INTEGER PRIMARY KEY, name TEXT, age INTEGER , Nationality TEXT );
+
+INSERT INTO writers VALUES (1, "Ghazi Algosaibi", 70, "Saudi arabian"); 
+INSERT INTO writers VALUES (2, "Naguib Mahfouz" , 94, "Egyptian");
+INSERT INTO writers VALUES (3, "Agatha Christie ", 85, "British");
+
+
+/* most rated books written by the authr accourding to goodreads.com */
+ 
+CREATE TABLE most_rated_book (id INTEGER PRIMARY KEY, author_id INTEGER, book_name TEXT, release_year INTEGER, rating INTEGER); 
+
+INSERT INTO most_rated_book VALUES (1, 1, "Life In Management", 1985, 4.49);
+INSERT INTO most_rated_book VALUES (2, 1, "Alzheimer", 2010, 3.64);
+INSERT INTO most_rated_book VALUES (3, 2, "And Then There Were None", 1939, 4.28);
+INSERT INTO most_rated_book VALUES (4, 2, "Murder on the Orient Express", 1934, 4.20); 
+INSERT INTO most_rated_book VALUES (5, 3, "Children of the Alley,", 1959, 4.10);
+INSERT INTO most_rated_book VALUES (6, 3, "Between The Two Palaces", 1956, 4.19);
+
+
+SELECT name , book_name, rating
+FROM writers
+JOIN most_rated_book
+on writers.id = most_rated_book.author_id; 
+
