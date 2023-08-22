@@ -1,0 +1,22 @@
+Project: Design a store database
+/* Create your own store! Your store should sell one type of things, like clothing or bikes, whatever you want your store to specialize in. You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items. */
+CREATE TABLE athleti_STORE (id INTEGER PRIMARY KEY, item TEXT,color TEXT, quantity INTEGER, price INTEGER );
+
+INSERT INTO athleti_STORE VALUES (1, "Running Trainers", "Black ", 100,400);
+INSERT INTO athleti_STORE VALUES (2, "Running Trainers", "White ", 100,400);
+INSERT INTO athleti_STORE VALUES (3, "Running Trainers", "Multiple Colors", 100 , 400);
+INSERT INTO athleti_STORE VALUES (4, "Joggers", "White ", 100 , 200);
+INSERT INTO athleti_STORE VALUES (5, "Joggers", "Black ", 100 , 200);
+INSERT INTO athleti_STORE VALUES (6, "Joggers", "Multiple Colors", 100 , 200);
+INSERT INTO athleti_STORE VALUES (7, "Shorts", "Black", 100 , 150);
+INSERT INTO athleti_STORE VALUES (8, "Shorts", "White", 100 , 150);
+INSERT INTO athleti_STORE VALUES (9, "Shorts", "Multiple Colors", 100 , 150);
+INSERT INTO athleti_STORE VALUES (10, "Oversized T-Shirt", "Black ", 100 , 100);
+INSERT INTO athleti_STORE VALUES (11, "Oversized T-Shirt", "White ", 100 , 100);
+INSERT INTO athleti_STORE VALUES (12, "Oversized T-Shirt", "Multiple Colors", 100 , 100);
+INSERT INTO athleti_STORE VALUES (13, "Vest", "Black", 100 , 120);
+INSERT INTO athleti_STORE VALUES (14, "Vest", "White", 100 , 120);
+INSERT INTO athleti_STORE VALUES (15, "Vest", "Multiple Colors", 100 , 120);
+SELECT * FROM athleti_STORE;
+SELECT * FROM athleti_STORE ORDER BY price;
+SELECT SUM(quantity) FROM athleti_STORE;
