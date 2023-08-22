@@ -1,0 +1,43 @@
+/* Think about your favorite apps, and pick one that stores your data- like a game that stores scores, an app that lets you post updates, etc. Now in this project, you're going to imagine that the app stores your data in a SQL database (which is pretty likely!), and write SQL statements that might look like their own SQL.
+* 		CREATE a table to store the data.
+* 		INSERT a few example rows in the table.
+* 		Use an UPDATE to emulate what happens when you edit data in the app.
+* 		Use a DELETE to emulate what happens when you delete data in the app. */
+
+
+
+
+CREATE TABLE SPL_USERS  (id INTEGER PRIMARY KEY, national_id INTEGER, phone_number INTEGER);
+
+CREATE TABLE SPL_INFORMATION  (id INTEGER PRIMARY KEY, phone_number INTEGER, house_number INTEGER, zib_code INTEGER, city TEXT, region TEXT);
+
+INSERT INTO SPL_USERS VALUES (1,1123562218,5532145032);
+INSERT INTO SPL_USERS VALUES (2,1143981758,5504391833);
+INSERT INTO SPL_USERS VALUES (3,1086331768,5543091311);
+INSERT INTO SPL_USERS VALUES (4,1076549318,5532776198);
+INSERT INTO SPL_USERS VALUES (5,1098750158,5532091477);
+INSERT INTO SPL_USERS VALUES (6,1164910418,5537733282);
+
+SELECT * FROM SPL_USERS;
+
+INSERT INTO SPL_INFORMATION VALUES (1,5532145032,24,4439,"Yanbu","Madinah");
+INSERT INTO SPL_INFORMATION VALUES (2,5504391833, 25, 4439,"Yanbu","Madinah");
+INSERT INTO SPL_INFORMATION VALUES (3,5543091311,137,6621,"Riyadh","Riyadh");
+INSERT INTO SPL_INFORMATION VALUES (4,5532776198, 700, 5521,"Hail","Hail");
+INSERT INTO SPL_INFORMATION VALUES (5,5532091477,43,2213,"Rabigh","Makkah");
+INSERT INTO SPL_INFORMATION VALUES  (6,5537733282,82,2273,"Taif","Makkah");
+
+SELECT * FROM SPL_INFORMATION;
+
+/* THE USEER CHANGED HIS PHONE NUMBER */
+
+UPDATE SPL_INFORMATION SET phone_number =5529865319 WHERE id = 4; 
+
+SELECT * FROM SPL_INFORMATION;
+
+/*THE USER CHANGED HIS HOUSE AND DELETED THE OLD ONE*/
+
+DELETE FROM SPL_INFORMATION WHERE ID=2;
+
+SELECT * FROM SPL_INFORMATION;
+
