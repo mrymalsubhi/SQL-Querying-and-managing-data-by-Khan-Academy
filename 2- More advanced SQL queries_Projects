@@ -1,0 +1,10 @@
+2.5 Project: Data dig
+/* The dat set is already been created, I just worked on it. The data set I choose is Top countries by population. Link:  https://gist.github.com/pamelafox/ad4f6abbaac0a48aa781 */ 
+
+/* What are average, max, and min values in the data? */
+
+SELECT name, max(population) AS max_population FROM countries; 
+
+SELECT name, min(population) AS min_population FROM countries;
+
+SELECT name, avg(population) AS avg_population FROM countries;
